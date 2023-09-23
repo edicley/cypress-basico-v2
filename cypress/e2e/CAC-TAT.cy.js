@@ -195,26 +195,26 @@ describe('Central de atendimento ao Cliente TAT', () => {
 
   it('seleciona um arquivo da pasta fixtures', () => {
     cy.get('#file-upload')
-      .selectFile('cypress/fixtures/certificado_4all.pdf')
+      .selectFile('cypress/fixtures/certificado_4all.txt')
       .should(($input) => {
-        expect($input[0].files[0].name).to.equal('certificado_4all.pdf')
+        expect($input[0].files[0].name).to.equal('certificado_4all.txt')
       })
   })
 
   it('seleciona um arquivo simulando um drag-and-drop', () => {
     cy.get('#file-upload')
-      .selectFile('cypress/fixtures/certificado_4all.pdf', { action: "drag-drop" })
+      .selectFile('cypress/fixtures/certificado_4all.txt', { action: "drag-drop" })
       .should(($input) => {
-        expect($input[0].files[0].name).to.equal('certificado_4all.pdf')
+        expect($input[0].files[0].name).to.equal('certificado_4all.txt')
       })
   })
 
   it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', () => {
-    cy.fixture('certificado_4all.pdf').as('certificado')
+    cy.fixture('certificado_4all.txt').as('certificado')
     cy.get('#file-upload')
       .selectFile('@certificado')
       .should(($input) => {
-        expect($input[0].files[0].name).to.equal('certificado_4all.pdf')
+        expect($input[0].files[0].name).to.equal('certificado_4all.txt')
       })
   })
 
